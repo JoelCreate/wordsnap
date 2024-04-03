@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  font-size: 16px;
+  background: #D1F6F4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.league-spartan-light {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.league-spartan-black {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-bold, 
+ul, 
+#submit-btn,
+#retry-btn,
+#chances,
+#how-to-play {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+}
+
+#how-to-play h4 {
+  font-weight: 400;
+  font-size: .9rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+#home-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100svh;
+  width: 290px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#logo {
+  width:85px;
+  height: 85px;
+  background: url('img/logo.png') center center no-repeat;
+  background-size: cover;
+  margin-bottom: 16px;
+} 
+
+#title {
+  font-size: 3.25rem;
+}
+
+#sub-title, #date {
+  font-size: 1.25rem;
+}
+
+.btn {
+  width: 125px;
+  height: 35px;
+  border-radius: 50px;
+  color: #fff;
+  padding-top: 10px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+#play-btn {
+  background: #000;
+  font-size: 1.5rem;
+  margin: 18px auto;
+}
+
+#editor {
+  font-size: .85rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 5%;
+}
+
+#play-modal:hover {
+  cursor: pointer;
+}
+
+#close {
+  position: absolute;
+  top: 10px;
+  right: 5%;
+  font-size: 1.25rem;
+}
+
+#how-to-play{
+  padding: 20px 15px;
+  text-align: left;
+  height: auto;
+  max-height: 765px;
+  width: 305px;
+  max-width: 400px;
+  background: #fff;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99999;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.55);
+}
+
+#how-to-play li {
+  text-align: left;
+  font-weight: 400;
+  font-size: .9rem;
+}
+
+#how-to-play ul {
+  margin: 10px auto;
+}
+
+/* #example-img {
+  background: url('img/example.png') center center no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+} */
+
+#content-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#game-container{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: 290px;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+#word-bank {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 305px;
+  max-width: 400px;
+  margin: 15px auto;
+}
+
+ul {
+  display: inline-block;
+
+}
+
+li {
+  list-style: none;
+  margin: 5px;
+}
+
+.material-symbols-outlined {
+  font-size: 1rem;
+  color: #000;  
+}
+
+
+input:focus {
+  outline: none;
+  caret-color: transparent;
+}
+
+.left::placeholder {
+    color: transparent;
+}
+
+.word-choice {
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: inline-block;
+  width: auto;
+}
+
+.word-choice:hover {
+  cursor: pointer;
+  opacity: .8;
+  font-size: 1.05rem;
+  transition: 200ms ease-in-out;
+}
+
+.left-column {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 160px;
+  height: 60px;
+  background: #8BE8E1;
+  margin: 10px;
+  border: 0px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 1.25rem;
+  user-select: none;
+  cursor: default;
+}
+
+.border, #player-answer1 {
+    border: 2px solid #ffb404; 
+}
+
+#input-start {
+  background: #54BEC4;
+  color: #975D06;
+}
+
+#input-end {
+  background: #975D06;
+  color:  #54BEC4;
+}
+
+#chances {
+  display: flex;
+  gap: .5rem;
+}
+
+#die1, #die2 {
+  display: none;
+}
+
+#buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+#submit-btn {
+  background: #ffb404;
+  color: #000;
+  width: 160px;
+  height: 42px;
+  margin: 10px auto;
+  padding-top: 12px;
+  font-size: 1.25rem;
+}
+
+#retry-btn {
+  background: #c88af3;
+  color: #000;
+  width: 160px;
+  height: 42px;
+  margin: 10px auto;
+  padding-top: 12px;
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 375px) {
+  .input {
+    width: 140px;
+    font-size: 1.15rem;
+  }
+}
