@@ -11,6 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  padding-top: 100px;
 }
 
 .league-spartan-light {
@@ -118,8 +119,8 @@ footer {
 #how-to-play{
   padding: 20px 15px;
   text-align: left;
-  height: auto;
-  max-height: 765px;
+  height: 80dvh;
+  overflow-y: scroll;
   width: 305px;
   max-width: 400px;
   background: #fff;
