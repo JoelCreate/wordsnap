@@ -12,6 +12,7 @@ body {
   justify-content: center;
   height: 100vh;
   padding-top: 100px;
+  overflow-y: hidden;
 }
 
 .league-spartan-light {
