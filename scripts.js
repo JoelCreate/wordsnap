@@ -12,6 +12,17 @@ window.onload = function() {
     updateDate()
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    const inputField = document.querySelectorAll('.input')
+    
+    inputField.forEach(input => {
+        input.addEventListener('focus', function(event) {
+            event.preventDefault()    
+            input.blur()
+        })
+    })
+})
+
 const modal = document.getElementById("play-modal")
 
 modal.addEventListener("click", function(){
@@ -103,36 +114,27 @@ function checkAnswers() {
     }
 }
 
-const retryBtn = document.getElementById("retry-btn")
+// const retryBtn = document.getElementById("retry-btn")
 
+// retryBtn.addEventListener("click", function(){    
 
-
-retryBtn.addEventListener("click", function(){    
-
-    const inputValues = document.querySelectorAll(".clear")
+//     const inputValues = document.querySelectorAll(".clear")
     
-    inputValues.forEach(input => {
-        input.value = ""
-    })
+//     inputValues.forEach(input => {
+//         input.value = ""
+//     })
 
-    // if(clickCount === 1) {
-    //     document.getElementById("try3").style.display = "none"
-    //     document.getElementById("die1").style.display = "block"        
-    // } else if (clickCount === 2) {
-    //     document.getElementById("try2").style.display = "none"
-    //     document.getElementById("die2").style.display = "block"
-    // } else {
-    //     alert("Game Over! No more trys for you")
-    // }
+//     // if(clickCount === 1) {
+//     //     document.getElementById("try3").style.display = "none"
+//     //     document.getElementById("die1").style.display = "block"        
+//     // } else if (clickCount === 2) {
+//     //     document.getElementById("try2").style.display = "none"
+//     //     document.getElementById("die2").style.display = "block"
+//     // } else {
+//     //     alert("Game Over! No more trys for you")
+//     // }
 
-})
+// })
 
 
-const inputField = document.querySelectorAll('.input')
 
-inputField.forEach(input => {
-    input.addEventListener('focus', function(event) {
-        event.preventDefault()    
-        input.blur()
-    })
-})
