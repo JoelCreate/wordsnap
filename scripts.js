@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputField = document.querySelectorAll('.input')
     
     inputField.forEach(input => {
-        input.addEventListener('focus', function(event) {
+        input.addEventListener('touchstart', function(event) {
             event.preventDefault()    
             input.blur()
         })
