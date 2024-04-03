@@ -130,7 +130,9 @@ retryBtn.addEventListener("click", function(){
 
 const inputField = document.querySelectorAll('.input')
 
-inputField.addEventListener('focus', function(event) {
-    event.preventDefault()    
-    inputField.blur()
+inputField.forEach(input => {
+    input.addEventListener('focus', function(event) {
+        event.preventDefault()    
+        input.blur()
+    })
 })
