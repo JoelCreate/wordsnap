@@ -1,4 +1,4 @@
- <!doctype html>
+  <!doctype html>
 
 <html>
     <head>
@@ -54,39 +54,39 @@
             </div>
 
         <div id="game-container" class="animate__animated animate__fadeInUp">  
-            <div id="left-chain">
+            <div id="correct-answers">
                 <div class="left-column">
-                    <input type="text" id="input-start" class="input left start poppins-bold" name="input-start" placeholder="Vegetable" value="Vegetable">
+                    <div id="input-start" class="input left start poppins-bold" name="input-start"><p>Vegetable</p></div>
                     <span class="material-symbols-outlined">east</span>
                 </div>
                 <div class="left-column">
-                    <input type="text" id="correct-answer1" class="input left clear poppins-bold" name="input-blank" placeholder="Fruit">
+                    <div data-answer="Fruit" id="correct-answer1" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
                     <span class="material-symbols-outlined">east</span>
                 </div>
                 <div class="left-column">
-                    <input type="text" id="correct-answer2" class="input left clear poppins-bold" name="input-blank" placeholder="Apple">
+                    <div data-answer="Apple" id="correct-answer2" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
                     <span class="material-symbols-outlined">east</span>
                 </div>
                 <div class="left-column">
-                    <input type="text" id="correct-answer3" class="input left clear poppins-bold" name="input-blank" placeholder="Steve Jobs">
+                    <div data-answer="Steve Jobs" id="correct-answer3" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
                     <span class="material-symbols-outlined">east</span>
                 </div>
                 <div class="left-column">
-                    <input type="text" id="correct-answer4" class="input left clear poppins-bold" name="input-blank" placeholder="Technology">
+                    <div data-answer="Technology" id="correct-answer4" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
                     <span class="material-symbols-outlined">east</span>
                 </div>
                 <div class="left-column">
-                    <input type="text" id="correct-answer5" class="input left clear poppins-bold" name="input-blank" placeholder="Aerospace">
+                    <div data-answer="Aerospace" id="correct-answer5" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
                     <span class="material-symbols-outlined">east</span>
                 </div>
             </div>
-            <div id="right-chain">                
-                <input type="text" id="player-answer1" class="input right clear poppins-bold" name="input-blank">
-                <input type="text" id="player-answer2" class="input right clear poppins-bold" name="input-blank">
-                <input type="text" id="player-answer3" class="input right clear poppins-bold" name="input-blank">
-                <input type="text" id="player-answer4" class="input right clear poppins-bold" name="input-blank">
-                <input type="text" id="player-answer5" class="input right clear poppins-bold" name="input-blank">
-                <input type="text" id="input-end" class="input end poppins-bold" name="input-end" value="Space Shuttle">
+            <div class="player-answers">                
+                <div id="player-answer1" class="player-answer input right clear poppins-bold"></div>
+                <div id="player-answer2" class="player-answer input right clear poppins-bold"></div>
+                <div id="player-answer3" class="player-answer input right clear poppins-bold"></div>
+                <div id="player-answer4" class="player-answer input right clear poppins-bold"></div>
+                <div id="player-answer5" class="player-answer input right clear poppins-bold"></div>
+                <div id="input-end" class="input end poppins-bold">Space Shuttle</div>
             </div>
         </div>
 
@@ -100,7 +100,6 @@
         </div>
 
         <div id="buttons">
-            <!-- <div id="retry-btn" class="btn animate__animated animate__fadeIn">Clear Board</div> -->
             <div id="submit-btn" class="btn animate__animated animate__fadeIn">Submit</div>            
         </div>
 
