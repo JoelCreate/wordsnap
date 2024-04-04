@@ -1,140 +1,123 @@
+// Function to update the date
 function updateDate() {
     const currentDate = new Date()
-
     const day = currentDate.getDate()
     const year = currentDate.getFullYear()
-    const formattedDate = "April " +  + day + ', ' + year
-
+    const formattedDate = "April " + day + ', ' + year
     document.getElementById('date').innerText = formattedDate
 }
 
+// Run the updateDate function when the window loads
 window.onload = function() {
     updateDate()
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const inputField = document.querySelectorAll('.input')
-    
-    inputField.forEach(input => {
-        input.addEventListener('touchstart', function(event) {
-            event.preventDefault()    
-            input.blur()
-        })
-    })
-})
-
+// Hide the play modal when clicked
 const modal = document.getElementById("play-modal")
-
 modal.addEventListener("click", function(){
     modal.style.display = "none"
 })
 
-
+// Add event listeners to word bank elements
 const wordBank = document.querySelectorAll(".word-choice")
-const answerFields = document.querySelectorAll(".right")
-const answerFieldLeft = document.querySelectorAll(".left")
+const playerAnswers = document.querySelectorAll('.player-answer')
+const correctAnswers = document.querySelectorAll(".correct-answer")
+
 
 wordBank.forEach(word => {
     word.addEventListener("click", function(){
         const selectedWord = this.textContent
 
-        answerFields.forEach(function(inputField) {            
-            inputField.classList.remove('border');
-        });
+        // Find the first empty player answer element
+        const emptyPlayerAnswer = Array.from(playerAnswers).find(answer => !answer.textContent.trim())
+        
+        if (emptyPlayerAnswer) {
+            // Set the selected word as the text content of the empty player answer element
+            emptyPlayerAnswer.textContent = selectedWord
 
-        for (let i = 0; i < answerFields.length; i++) {
-            if (!answerFields[i].value) {
-                answerFields[i].value = selectedWord
-                // Move focus to the next input field if available
-                if (i < answerFields.length - 1) {
-                    answerFields[i + 1].focus()
-                    document.getElementById("player-answer1").style.border = "none"
-                    answerFields[i + 1].classList.add('animate__animated', 'animate__bounceIn')
-                    answerFields[i + 1].classList.add('border')
-                }
-                break
+            // Move focus to the next empty player answer element if available
+            const nextIndex = Array.from(playerAnswers).indexOf(emptyPlayerAnswer)
+            if (nextIndex < playerAnswers.length) {
+                playerAnswers[nextIndex].focus()
+            }
+            
+            // Show the selected word in the correct answers area
+            const correctAnswer = document.getElementById(`correct-answer${nextIndex + 1}`)
+            if (correctAnswer) {
+                correctAnswer.textContent = selectedWord
             }
         }
-        for (let i = 0; i < answerFieldLeft.length; i++) { 
-            if (!answerFieldLeft[i].value) {       
-                answerFieldLeft[i].value = selectedWord;                          
-                // Move focus to the next input field in the second set if available
-                if (i < answerFieldLeft.length - 1) {
-                    answerFieldLeft[i + 1].focus() 
-                }
-                break
-            }
-        }
+        
     })
 })
 
+// Track the number of attempts
 let clickCount = 0
 
-
+// Check answers function
 document.getElementById("submit-btn").addEventListener("click", function() {
     checkAnswers()
 })
 
 function checkAnswers() {
-    const correctAnswerInputs = document.querySelectorAll('.left')
+    const correctAnswers = document.querySelectorAll('#correct-answers [data-answer]')
     let allCorrect = true
-     
-    clickCount++
 
-    correctAnswerInputs.forEach(function(input, index) {
-        const selectedWord = input.value
-        const placeholder = input.placeholder
-        if (selectedWord !== placeholder) {
-            allCorrect = false
-        }
+    const dataAnswerValues = []
+
+    // Iterate over each element with data-answer attribute and push its value to the array
+    correctAnswers.forEach(function(element) {
+        dataAnswerValues.push(element.dataset.answer)
     })
 
+    correctAnswers.forEach(function(correctAnswer, index) {
+        // Check if playerAnswers[index] is defined
+        if (playerAnswers[index]) {
+            const selectedWord = playerAnswers[index].textContent.trim()
+            const correctWord = correctAnswer.dataset.answer
+            if (selectedWord !== correctWord) {
+                allCorrect = false
+            }
+        } 
+    })
+
+    clickCount++    
+
+    //Determine alert message based on the attempt count and correctness of answers
     if (clickCount === 1 && allCorrect) {
         alert("All answers are correct!") 
-    } else if(clickCount === 1) {
+    } else if (clickCount === 1) {
         alert("Some answers are incorrect. Please try again.")
         document.getElementById("try3").style.display = "none"
         document.getElementById("die1").style.display = "block"
-        const inputValues = document.querySelectorAll(".clear")
-        
-        inputValues.forEach(input => {
-            input.value = ""
-        })
-    } else if(clickCount === 2) {
+        resetAnswers()
+    } else if (clickCount === 2) {
         alert("Some answers are incorrect. Please try again.")
         document.getElementById("try2").style.display = "none"
         document.getElementById("die2").style.display = "block"
-        const inputValues = document.querySelectorAll(".clear")
-        
-        inputValues.forEach(input => {
-            input.value = ""
-        })
+        resetAnswers()
     } else {
-        alert("Game over! No more trys for you!")
+        alert("Game over! No more tries for you!")
     }
 }
 
-// const retryBtn = document.getElementById("retry-btn")
+// Function to reset player answers
+function resetAnswers() {
+    playerAnswers.forEach(answer => {
+        answer.textContent = ""
+    })
 
-// retryBtn.addEventListener("click", function(){    
-
-//     const inputValues = document.querySelectorAll(".clear")
-    
-//     inputValues.forEach(input => {
-//         input.value = ""
-//     })
-
-//     // if(clickCount === 1) {
-//     //     document.getElementById("try3").style.display = "none"
-//     //     document.getElementById("die1").style.display = "block"        
-//     // } else if (clickCount === 2) {
-//     //     document.getElementById("try2").style.display = "none"
-//     //     document.getElementById("die2").style.display = "block"
-//     // } else {
-//     //     alert("Game Over! No more trys for you")
-//     // }
-
-// })
+    correctAnswers.forEach(answer => {
+        answer.textContent = ""
+    })
+}
 
 
-
+// Disable focus on input fields
+const inputField = document.querySelectorAll('.input')
+inputField.forEach(input => {
+    input.addEventListener('focus', function(event) {
+        event.preventDefault()   
+        input.blur()
+    })
+})
