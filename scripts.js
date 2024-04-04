@@ -23,29 +23,42 @@ const wordBank = document.querySelectorAll(".word-choice")
 const playerAnswers = document.querySelectorAll('.player-answer')
 const correctAnswers = document.querySelectorAll(".correct-answer")
 
+function addAnimationAndBorder(answerElement) {
+    answerElement.classList.add('animate__animated', 'animate__bounceIn')
+    answerElement.classList.add('border')
+}
 
 wordBank.forEach(word => {
     word.addEventListener("click", function(){
         const selectedWord = this.textContent
 
         playerAnswers.forEach(function(bubble) {            
-            bubble.classList.remove('border');
-        });
-
-         for (let i = 0; i < playerAnswers.length; i++) {
+            bubble.classList.remove('border')
+        })
+        
+        for (let i = 0; i < playerAnswers.length; i++) {
             if (!playerAnswers[i].value) {
                 playerAnswers[i].value = selectedWord
                 // Move focus to the next input field if available
                 if (i < playerAnswers.length - 1) {
                     playerAnswers[i + 1].focus()
                     document.getElementById("player-answer1").style.border = "none"
-                    playerAnswers[i + 1].classList.add('animate__animated', 'animate__bounceIn')
-                    playerAnswers[i + 1].classList.add('border')
-                }
-                break
+                    addAnimationAndBorder(playerAnswers[i + 1])                    
+                }  break
             }
         }
 
+        let allBubblesFilled = true
+        for (let i = 0; i < playerAnswers.length; i++) {
+            if (!playerAnswers[i].value) {
+                allBubblesFilled = false                
+            }
+        }
+
+        if (allBubblesFilled) {
+            document.getElementById("submit-btn").classList.add('glow')
+        }
+        
         // Find the first empty player answer element
         const emptyPlayerAnswer = Array.from(playerAnswers).find(answer => !answer.textContent.trim())
         
@@ -102,47 +115,36 @@ function checkAnswers() {
     clickCount++    
 
     //Determine alert message based on the attempt count and correctness of answers
-    if (clickCount === 1 && allCorrect) {
+    if (allCorrect) {
         alert("All answers are correct!") 
     } else if (clickCount === 1) {
         alert("Some answers are incorrect. Please try again.")
         document.getElementById("try3").style.display = "none"
-        document.getElementById("die1").style.display = "block"
-        resetAnswers()
+        document.getElementById("die1").style.display = "block" 
+        resetAnswers()       
     } else if (clickCount === 2) {
-        alert("Some answers are incorrect. Please try again.")
+        alert("Some answers are incorrect. You have one more try!")
         document.getElementById("try2").style.display = "none"
         document.getElementById("die2").style.display = "block"
-        resetAnswers()
+        resetAnswers()        
     } else {
         alert("Game over! No more tries for you!")
-    }
+    }    
+
 }
 
 // Function to reset player answers
 function resetAnswers() {
-     playerAnswers.forEach((answer, index) => {
-        answer.value = ""
-        answer.textContent = ""; // Reset player answers
-        // Add animation classes to player answer elements after resetting
-        if (index >= 0) {
-            answer.classList.add('animate__animated', 'animate__bounceIn');
-        }
-    });
-
-    correctAnswers.forEach(answer => {
-        answer.textContent = ""
+    
+    const clearValues = document.querySelectorAll(".clear")
+    
+    clearValues.forEach(word => {
+        word.textContent = ""
+        word.value = ""
     })
 
-    document.getElementById("player-answer1").style.border ="2px solid #ffb404"
+    document.getElementById("submit-btn").classList.remove('glow')
+    document.getElementById("player-answer1").style.border = "2px solid #ffb404"
+
 }
 
-
-// Disable focus on input fields
-const inputField = document.querySelectorAll('.input')
-inputField.forEach(input => {
-    input.addEventListener('focus', function(event) {
-        event.preventDefault()   
-        input.blur()
-    })
-})
