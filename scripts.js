@@ -28,6 +28,24 @@ wordBank.forEach(word => {
     word.addEventListener("click", function(){
         const selectedWord = this.textContent
 
+        playerAnswers.forEach(function(bubble) {            
+            bubble.classList.remove('border');
+        });
+
+         for (let i = 0; i < playerAnswers.length; i++) {
+            if (!playerAnswers[i].value) {
+                playerAnswers[i].value = selectedWord
+                // Move focus to the next input field if available
+                if (i < playerAnswers.length - 1) {
+                    playerAnswers[i + 1].focus()
+                    document.getElementById("player-answer1").style.border = "none"
+                    playerAnswers[i + 1].classList.add('animate__animated', 'animate__bounceIn')
+                    playerAnswers[i + 1].classList.add('border')
+                }
+                break
+            }
+        }
+
         // Find the first empty player answer element
         const emptyPlayerAnswer = Array.from(playerAnswers).find(answer => !answer.textContent.trim())
         
@@ -103,13 +121,20 @@ function checkAnswers() {
 
 // Function to reset player answers
 function resetAnswers() {
-    playerAnswers.forEach(answer => {
-        answer.textContent = ""
-    })
+     playerAnswers.forEach((answer, index) => {
+        answer.value = ""
+        answer.textContent = ""; // Reset player answers
+        // Add animation classes to player answer elements after resetting
+        if (index >= 0) {
+            answer.classList.add('animate__animated', 'animate__bounceIn');
+        }
+    });
 
     correctAnswers.forEach(answer => {
         answer.textContent = ""
     })
+
+    document.getElementById("player-answer1").style.border ="2px solid #ffb404"
 }
 
 
