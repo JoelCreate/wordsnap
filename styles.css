@@ -33,7 +33,11 @@ ul,
 #submit-btn,
 #retry-btn,
 #chances,
-#how-to-play {
+#how-to-play,
+#win-modal,
+#almost-modal,
+#onetry-modal,
+#gameover-modal {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -54,10 +58,11 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100svh;
   width: 290px;
   max-width: 400px;
-  margin: 0 auto;
+  margin: -100px auto 0 auto;
 }
 
 #logo {
@@ -104,7 +109,10 @@ footer {
   bottom: 5%;
 }
 
-#play-modal:hover {
+#play-modal:hover,
+#win-modal:hover,
+#almost-modal:hover,
+#gameover-modal:hover {
   cursor: pointer;
 }
 
@@ -113,6 +121,33 @@ footer {
   top: 10px;
   right: 5%;
   font-size: 1.25rem;
+}
+
+#you-win, #almost, #one-try, #game-over {
+  padding: 20px 15px;
+  height: 305px;
+  width: 305px;
+  max-width: 400px;
+  background: #fff;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 99999;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.55);
+}
+
+#win-modal, #almost-modal, #onetry-modal, #gameover-modal {
+  display: none;
+}
+
+#win-social {
+  display: flex;
+  font-size: .8rem;
+  font-weight: 400;
+  margin: 20px auto;
 }
 
 #how-to-play {
@@ -143,7 +178,7 @@ footer {
   margin: 10px auto;
 }
 
-#content-overlay {
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -189,10 +224,10 @@ li {
 }
 
 
-input:focus {
+/* input:focus {
   outline: none;
   caret-color: transparent;
-}
+} */
 
 .left::placeholder {
     color: transparent;
