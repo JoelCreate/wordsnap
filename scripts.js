@@ -18,6 +18,21 @@ modal.addEventListener("click", function(){
     modal.style.display = "none"
 })
 
+const almostModal = document.getElementById("almost-modal")
+almostModal.addEventListener("click", function(){
+    almostModal.style.display = "none"
+})
+
+const oneTryModal = document.getElementById("onetry-modal")
+oneTryModal.addEventListener("click", function(){
+    oneTryModal.style.display = "none"
+})
+
+const gameOver = document.getElementById("gameover-modal")
+// gameOverl.addEventListener("click", function(){
+//     gameOverl.style.display = "none"
+// })
+
 // Add event listeners to word bank elements
 const wordBank = document.querySelectorAll(".word-choice")
 const playerAnswers = document.querySelectorAll('.player-answer')
@@ -116,19 +131,19 @@ function checkAnswers() {
 
     //Determine alert message based on the attempt count and correctness of answers
     if (allCorrect) {
-        alert("All answers are correct!") 
+        document.getElementById("win-modal").style.display = "block"
     } else if (clickCount === 1) {
-        alert("Some answers are incorrect. Please try again.")
+        almostModal.style.display = "block"
         document.getElementById("try3").style.display = "none"
         document.getElementById("die1").style.display = "block" 
         resetAnswers()       
     } else if (clickCount === 2) {
-        alert("Some answers are incorrect. You have one more try!")
+        oneTryModal.style.display = "block"
         document.getElementById("try2").style.display = "none"
         document.getElementById("die2").style.display = "block"
         resetAnswers()        
     } else {
-        alert("Game over! No more tries for you!")
+        gameOver.style.display = "block"
     }    
 
 }
