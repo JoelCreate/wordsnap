@@ -33,7 +33,7 @@
                 <strong>Example</strong><br><br>
                 <img src="img/example.png" width="100%" height="auto"/>
             </div>
-            <div id="content-overlay"></div>
+            <div id="content-overlay" class="overlay"></div>
         </div>
 
          <div id="word-bank" class="animate__animated animate__fadeInDown">
@@ -103,7 +103,81 @@
             <div id="submit-btn" class="btn animate__animated animate__fadeIn">Submit</div>            
         </div>
 
-        <script src="scripts.js"></script>        
+       <!-- <a href="update-values.html">Update Values Here</a> -->
+
+        <div id="almost-modal">
+            <div id="almost" class="animate__animated animate__bounceIn">
+                <h2>Almost! 🤔<br><br>You still have a few incorrect words.</h2><br><br>
+                <div id="retry-btn" class="btn">Keep Going!</div>               
+            </div>
+            <div id="content-overlay" class="overlay"></div>
+        </div>
+
+        <div id="onetry-modal">
+            <div id="one-try" class="animate__animated animate__bounceIn">
+                <h2>Getting closer but not quite... 😯<br><br>You have 1 try left!</h2><br><br>
+                <div id="retry-btn" class="btn">Keep Going!</div>               
+            </div>
+            <div id="content-overlay" class="overlay"></div>
+        </div>
+
+        <div id="gameover-modal">
+            <div id="game-over" class="animate__animated animate__bounceIn">
+                <h2>Game Over 🥹<br>You did well but it just wasn't enough.</h2><br>
+                <p>Come back tomorrow to try again!</p>
+                <div id="win-social">
+                    <div>
+                        <p>Share WordSnap on Facebook!</p>
+                        <img src="img/Facebook.png" width="70px" height="auto"/>
+                    </div>
+                    <div>
+                        <p>Sign up for daily reminders!</p>
+                        <img src="img/Mail.png" width="70px" height="auto"/>
+                    </div>
+                </div>
+            </div>
+            <div id="content-overlay" class="overlay"></div>
+        </div>
+
+
+
+       <div id="win-modal">
+            <div id="you-win" class="animate__animated animate__bounceIn">
+                <span class="material-symbols-outlined" id="close">close</span>
+                <h2>Congrats! 🥳</h2><br>
+                <h4>You won today's<br>game of WordSnap 🫰</h4><br>
+                <p>Don't forget to come back<br>tomorrow to play again!</p>
+                <div id="win-social">
+                    <div>
+                        <p>Share your score on Facebook!</p>
+                        <img src="img/Facebook.png" width="70px" height="auto"/>
+                    </div>
+                    <div>
+                        <p>Sign up for daily reminders!</p>
+                        <img src="img/Mail.png" width="70px" height="auto"/>
+                    </div>
+                </div>
+            </div>
+            <div id="content-overlay" class="overlay"></div>
+       </div>
+
+        <script src="scripts.js"></script> 
+
+        <script>
+            // Retrieve values from localStorage
+            var input1Value = localStorage.getItem("input1Value");
+            var input2Value = localStorage.getItem("input2Value");
+            var input3Value = localStorage.getItem("input3Value");
+            var input4Value = localStorage.getItem("input4Value");
+            var input5Value = localStorage.getItem("input5Value");
+
+            // Update data-answer attributes
+            //document.getElementById("correct-answer1").setAttribute("data-answer", input1Value);
+            //document.getElementById("correct-answer2").setAttribute("data-answer", input2Value);
+            //document.getElementById("correct-answer3").setAttribute("data-answer", input3Value);
+            //document.getElementById("correct-answer4").setAttribute("data-answer", input4Value);
+            //document.getElementById("correct-answer5").setAttribute("data-answer", input5Value);
+        </script>       
     </body>
 
 </html>
