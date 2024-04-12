@@ -11,7 +11,6 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  padding-top: 100px;
 }
 
 .league-spartan-light {
@@ -37,17 +36,41 @@ ul,
 #win-modal,
 #almost-modal,
 #onetry-modal,
-#gameover-modal {
+#gameover-modal,
+#timer {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
   text-align: center;
 }
 
+#timer {
+  background: #ffb404;
+  padding: 5px 10px;
+  color: #975D06;
+  width: 200px;
+  letter-spacing: 5px;
+  border: 2px solid #D1F6F4;
+  outline: 2px solid #975d06;
+  border-radius: 50px;
+}
+
+#stopped-time {
+  color: #ffb404;
+  font-size: 1.5rem;
+}
+
+#fastest-time {
+  color: #c88af3;
+  font-size: 1.25rem;
+
+}
+
 #how-to-play h4 {
   font-weight: 400;
   font-size: .9rem;
 }
+
 
 a {
   text-decoration: none;
@@ -125,7 +148,8 @@ footer {
 
 #you-win, #almost, #one-try, #game-over {
   padding: 20px 15px;
-  height: 305px;
+  height: auto;
+  max-height: 500px;
   width: 305px;
   max-width: 400px;
   background: #fff;
@@ -137,6 +161,10 @@ footer {
   margin: auto;
   z-index: 99999;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  justify-content: center;
 }
 
 #win-modal, #almost-modal, #onetry-modal, #gameover-modal {
@@ -147,7 +175,8 @@ footer {
   display: flex;
   font-size: .8rem;
   font-weight: 400;
-  margin: 20px auto;
+  margin: 5px auto;
+  gap: 4rem;
 }
 
 #how-to-play {
@@ -205,7 +234,7 @@ footer {
   align-items: center;
   width: 305px;
   max-width: 400px;
-  margin: 15px auto;
+  margin: 25px auto 5px auto;
 }
 
 ul {
@@ -223,15 +252,6 @@ li {
   color: #000;  
 }
 
-
-/* input:focus {
-  outline: none;
-  caret-color: transparent;
-} */
-
-.left::placeholder {
-    color: transparent;
-}
 
 .word-choice {
   background: #fff;
@@ -324,7 +344,11 @@ li {
   font-size: 1.25rem;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 395px) {
+  #timer {
+    margin-top: 125px;
+  }
+
   .input {
     width: 140px;
     font-size: 1.15rem;
