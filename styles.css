@@ -346,11 +346,17 @@ li {
 
 @media screen and (max-width: 395px) {
   #timer {
-    margin-top: 125px;
+    margin-top: 250px;
   }
 
   .input {
     width: 140px;
     font-size: 1.15rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #timer {
+    margin-top: 125px;
   }
 }
