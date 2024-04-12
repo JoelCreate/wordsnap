@@ -36,47 +36,49 @@
             <div id="content-overlay" class="overlay"></div>
         </div>
 
+    <p id="timer" class="animate__animated animate__bounceInUp">00:00:00</p>
+
          <div id="word-bank" class="animate__animated animate__fadeInDown">
                 <ul>
-                    <li class="word-choice">Steve Jobs</li>
-                    <li class="word-choice">Monkey</li>
-                    <li class="word-choice">Apple</li>
-                    <li class="word-choice">Fruit</li>
+                    <li class="word-choice">Sword</li>
+                    <li class="word-choice">Oven</li>
+                    <li class="word-choice">Europe</li>
+                    <li class="word-choice">Metal</li>
                     <li class="word-choice">Technology</li>
-                    <li class="word-choice">Coffee</li>
-                    <li class="word-choice">Aerospace</li>
-                    <li class="word-choice">Tesla</li>
-                    <li class="word-choice">Ball</li>
-                    <li class="word-choice">Suit</li>
-                    <li class="word-choice">Poker</li>
-                    <li class="word-choice">Gravity</li>
+                    <li class="word-choice">Taxi</li>
+                    <li class="word-choice">Knights</li>
+                    <li class="word-choice">Graffiti</li>
+                    <li class="word-choice">History</li>
+                    <li class="word-choice">Pizza</li>
+                    <li class="word-choice">Armor</li>
+                    <li class="word-choice">Moon</li>
                 </ul>
             </div>
 
         <div id="game-container" class="animate__animated animate__fadeInUp">  
             <div id="correct-answers">
                 <div class="left-column">
-                    <div id="input-start" class="input left start poppins-bold" name="input-start"><p>Vegetable</p></div>
+                    <div id="input-start" class="input left start poppins-bold" name="input-start"><p>Cavalry</p></div>
                     <span class="material-symbols-outlined">east</span>
                 </div>
                 <div class="left-column">
-                    <div data-answer="Fruit" id="correct-answer1" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
+                    <div data-answer="Knights" id="correct-answer1" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
                     <span class="material-symbols-outlined">east</span>
                 </div>
                 <div class="left-column">
-                    <div data-answer="Apple" id="correct-answer2" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
+                    <div data-answer="Armor" id="correct-answer2" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
                     <span class="material-symbols-outlined">east</span>
                 </div>
                 <div class="left-column">
-                    <div data-answer="Steve Jobs" id="correct-answer3" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
+                    <div data-answer="Metal" id="correct-answer3" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
                     <span class="material-symbols-outlined">east</span>
                 </div>
                 <div class="left-column">
-                    <div data-answer="Technology" id="correct-answer4" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
+                    <div data-answer="Oven" id="correct-answer4" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
                     <span class="material-symbols-outlined">east</span>
                 </div>
                 <div class="left-column">
-                    <div data-answer="Aerospace" id="correct-answer5" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
+                    <div data-answer="Pizza" id="correct-answer5" class="correct-answer input left clear poppins-bold" name="input-blank"></div>
                     <span class="material-symbols-outlined">east</span>
                 </div>
             </div>
@@ -86,7 +88,7 @@
                 <div id="player-answer3" class="player-answer input right clear poppins-bold"></div>
                 <div id="player-answer4" class="player-answer input right clear poppins-bold"></div>
                 <div id="player-answer5" class="player-answer input right clear poppins-bold"></div>
-                <div id="input-end" class="input end poppins-bold">Space Shuttle</div>
+                <div id="input-end" class="input end poppins-bold">New York</div>
             </div>
         </div>
 
@@ -146,22 +148,24 @@
                 <span class="material-symbols-outlined" id="close">close</span>
                 <h2>Congrats! 🥳</h2><br>
                 <h4>You won today's<br>game of WordSnap 🫰</h4><br>
-                <p>Don't forget to come back<br>tomorrow to play again!</p>
+                <h4>Your time was <div id="stopped-time"></div></h4> 
+                <h4><em>Today's fastest time was <div id="fastest-time"></div></em></h4>  
                 <div id="win-social">
                     <div>
-                        <p>Share your score on Facebook!</p>
+                        <p>Share your<br>score!</p>
                         <img src="img/Facebook.png" width="70px" height="auto"/>
                     </div>
                     <div>
-                        <p>Sign up for daily reminders!</p>
+                        <p>Get daily<br>reminders!</p>
                         <img src="img/Mail.png" width="70px" height="auto"/>
                     </div>
                 </div>
+                <p style="color: #54BEC4;">Don't forget to come back<br>tomorrow to play again!</p>
             </div>
             <div id="content-overlay" class="overlay"></div>
        </div>
 
-        <script src="scripts.js"></script> 
+        <script src="scripts.js" type="module"></script> 
 
         <script>
             // Retrieve values from localStorage
